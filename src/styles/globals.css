@@ -1,47 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Inter", sans-serif;
+}
+
+@layer base {
+  h3 {
+    @apply text-xl;
+    @apply font-semibold;
+  }
+}
+
 .customize__scroll {
-	overflow-x: auto;
+  overflow-x: auto;
 }
 .customize__scroll::-webkit-scrollbar {
-	width: 3px;
-	height: 5px;
+  width: 3px;
+  height: 5px;
 }
 /* Track */
 .customize__scroll::-webkit-scrollbar-track {
-	background: #e9e8e8;
-	@apply rounded;
+  background: #e9e8e8;
+  @apply rounded;
 }
 .customize__scroll::-webkit-scrollbar-thumb {
-	background: #b7b7b7;
-	@apply rounded;
+  background: #b7b7b7;
+  @apply rounded;
 }
 .breadcrumbs {
-	/* max-width: 1200px; */
-	margin: 0px auto;
+  /* max-width: 1200px; */
+  margin: 0px auto;
 }
 .breadcrumbs > * {
-	display: inline-block;
-	margin-right: 10px;
+  display: inline-block;
+  margin-right: 10px;
 }
 .breadcrumbs .crumb:after {
-	content: ">";
-	margin-left: 10px;
-	color: #8c8c8c;
+  content: ">";
+  margin-left: 10px;
+  color: #8c8c8c;
 }
 
 .breadcrumbs .crumb:last-child:after {
-	display: none;
+  display: none;
 }
 
 .date_input {
-	height: 40px;
+  height: 40px;
 }
 .date_input > input:focus {
-	box-shadow: none !important;
+  box-shadow: none !important;
 }
 .date_input > button:focus {
-	box-shadow: none !important;
+  box-shadow: none !important;
 }
