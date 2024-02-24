@@ -16,9 +16,9 @@ const Layout = ({ title, children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex min-h-screen px-4 bg-[#f4f2f2] relative">
+      <main className="relative flex min-h-screen bg-slate-100">
         <Sidebar open={open} />
-        <div className="flex-1 w-full pb-5 overflow-auto relative">
+        <div className="relative flex-1 w-full pb-5 overflow-auto">
           <Header open={open} setOpen={setOpen} />
           <div className="flex flex-col justify-between h-[90%]">
             <div>{children}</div>
