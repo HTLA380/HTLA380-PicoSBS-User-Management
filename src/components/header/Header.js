@@ -8,7 +8,7 @@ import UserProfile from "./UserProfile";
 
 const Header = ({ open, setOpen }) => {
   return (
-    <header className="sticky top-0 z-10 py-4 bg-slate-100">
+    <header className="sticky top-0 z-10 px-8 py-4 bg-slate-100">
       <nav className="flex items-center justify-between">
         <div>
           <h3>Users List</h3>
