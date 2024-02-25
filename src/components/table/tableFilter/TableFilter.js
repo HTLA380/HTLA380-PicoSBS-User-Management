@@ -1,12 +1,16 @@
-import React from "react";
-import Button from "../form/button/Button";
-import Input from "../form/input/Input";
+import React, { useState } from "react";
+import Button from "../../form/button/Button";
+import Input from "../../form/input/Input";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FaFilter } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { PiExportBold } from "react-icons/pi";
+import FilterPopover from "./FilterPopover";
 
 const TableFilter = ({ placeholder }) => {
+  const [role, setRole] = useState("administrator");
+  const [status, setStatus] = useState("active");
+
   return (
     <>
       <div className="flex flex-wrap items-center justify-between gap-4 px-8 pt-8 font-medium">
@@ -19,10 +23,12 @@ const TableFilter = ({ placeholder }) => {
         </div>
         <div className="flex items-center gap-4">
           <div>
-            <button className="flex items-center gap-2 px-6 py-3 text-sm text-blue-500 rounded-md bg-blue-50 hover:bg-blue-500 hover:text-white">
-              <FaFilter />
-              Filter
-            </button>
+            <FilterPopover
+              role={role}
+              setRole={setRole}
+              status={status}
+              setStatus={setStatus}
+            />
           </div>
           <div>
             <button className="flex items-center gap-2 px-6 py-3 text-sm text-blue-500 rounded-md bg-blue-50 hover:bg-blue-500 hover:text-white">

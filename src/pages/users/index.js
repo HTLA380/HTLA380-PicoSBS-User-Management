@@ -2,7 +2,7 @@ import CustomTable from "@/components/table/CustomTable";
 import Layout from "@/components/Layout";
 import { UsersListInfos } from "constants/data";
 import React from "react";
-import TableFilter from "@/components/table/TableFilter";
+import TableFilter from "@/components/table/tableFilter/TableFilter";
 import TablePagination from "@/components/table/TablePagination";
 
 const tableHeader = ["User", "Username", "Role", "Status"];

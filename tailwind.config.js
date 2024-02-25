@@ -21,6 +21,9 @@ module.exports = {
       fontFamily: {
         Inter: ["Inter", "sans-serif"],
       },
+      boxShadow: {
+        card: "0px 4px 10px rgba(0,0,0,0.1)",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
