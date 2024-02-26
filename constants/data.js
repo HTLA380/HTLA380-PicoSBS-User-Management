@@ -1,3 +1,42 @@
+export const pageTitleData = [
+  {
+    url: "/",
+    title: "Pico SBS",
+    pathname: "Home",
+    subtitle: "Dashboard",
+  },
+  {
+    url: "/users",
+    title: "Users List",
+    pathname: "Users",
+    subtitle: "Users List",
+  },
+  {
+    url: "/users/create",
+    title: "Create User",
+    pathname: "Users List",
+    subtitle: "Create",
+  },
+  {
+    url: "/business-users/import",
+    title: "Import Users",
+    pathname: "Users",
+    subtitle: "Import",
+  },
+  {
+    url: "/roles",
+    title: "Roles List",
+    pathname: "Roles",
+    subtitle: "Roles List",
+  },
+  {
+    url: "/roles/create",
+    title: "Create Role",
+    pathname: "Roles List",
+    subtitle: "Create",
+  },
+];
+
 export const sidebarData = [
   {
     menu_name: "Home",

@@ -5,12 +5,12 @@ import Sidebar from "./Sidebar";
 import Header from "./header/Header";
 import Footer from "./Footer";
 
-const Layout = ({ title, children }) => {
+const Layout = ({ children }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
       <Head>
-        <title>{title ? "ERPPOS | " + title : "ERPPOS"}</title>
+        <title>ERPPOS</title>
         <meta name="description" content="ERPPOS" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
