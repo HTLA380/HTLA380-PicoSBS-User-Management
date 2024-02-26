@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { FaChevronDown } from "react-icons/fa";
 
-const DropDownMenu = ({ state, setState, placeholder, options }) => {
+const SelectDropDown = ({ state, setState, placeholder, options }) => {
   return (
     <div className="relative">
       <Listbox value={state} onChange={setState ? setState : () => null}>
@@ -30,4 +30,4 @@ const DropDownMenu = ({ state, setState, placeholder, options }) => {
   );
 };
 
-export default DropDownMenu;
+export default SelectDropDown;

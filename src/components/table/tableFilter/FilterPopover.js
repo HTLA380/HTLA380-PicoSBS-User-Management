@@ -1,7 +1,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
 import { FaFilter } from "react-icons/fa";
-import DropDownMenu from "@/components/menu/DropDownMenu";
+import SelectDropDown from "@/components/drawer/SelectDropDown";
 
 const roleOptionData = [
   { id: 1, name: "Administrator", value: "administrator" },
@@ -42,7 +42,7 @@ const FilterPopover = ({ role, setRole, status, setStatus }) => {
             <div className="p-5">
               <div>
                 <p className="text-xs">Role:</p>
-                <DropDownMenu
+                <SelectDropDown
                   state={role}
                   setState={setRole}
                   placeholder={"Select option"}
@@ -52,7 +52,7 @@ const FilterPopover = ({ role, setRole, status, setStatus }) => {
 
               <div className="mt-8">
                 <p className="text-xs">Account Status</p>
-                <DropDownMenu
+                <SelectDropDown
                   state={status}
                   setState={setStatus}
                   placeholder={"Select option"}
