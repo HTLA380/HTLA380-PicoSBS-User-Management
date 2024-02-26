@@ -46,9 +46,7 @@ const ThemeToggle = () => {
 
   return (
     <HoverPopoverButton popOverContent={themePopoverContent}>
-      <button
-        onClick={() => setIsSoundOn((prev) => !prev)}
-        className="flex items-center justify-center w-8 h-full text-sm text-gray-500 bg-white rounded-md hover:text-blue-500">
+      <button className="flex items-center justify-center w-8 h-full text-sm text-gray-500 bg-white rounded-md hover:text-blue-500">
         {icon}
       </button>
     </HoverPopoverButton>
