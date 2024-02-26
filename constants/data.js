@@ -296,10 +296,9 @@ export const UsersListInfos = [
       email: "smith@kpmg.com",
       img: "/images/user_image.jpg",
     },
+    username: "Emma Smith",
     role: "Administrator",
-    last_login: "yesterday",
-    status: "",
-    joined_date: "10 Nov 2023, 6:43am",
+    status: "active",
   },
   {
     user: {
@@ -307,10 +306,9 @@ export const UsersListInfos = [
       email: "melody@altbox.com",
       img: "",
     },
+    username: "Melody Macy",
     role: "Analyst",
-    last_login: "20 mins ago",
-    status: "Enabled",
-    joined_date: "21 Feb 2023, 11:05",
+    status: "active",
   },
   {
     user: {
@@ -318,10 +316,9 @@ export const UsersListInfos = [
       email: "melody@altbox.com",
       img: "/images/user_image.jpg",
     },
+    username: "Max Smith",
     role: "Developer",
-    last_login: "20 mins ago",
-    status: "",
-    joined_date: "21 Feb 2023, 11:05",
+    status: "inactive",
   },
   {
     user: {
@@ -329,10 +326,9 @@ export const UsersListInfos = [
       email: "smith@kpmg.com",
       img: "/images/user_image.jpg",
     },
+    username: "Emma Smith",
     role: "Administrator",
-    last_login: "yesterday",
-    status: "",
-    joined_date: "10 Nov 2023, 6:43am",
+    status: "active",
   },
   {
     user: {
@@ -340,10 +336,9 @@ export const UsersListInfos = [
       email: "melody@altbox.com",
       img: "",
     },
+    username: "Melody Macy",
     role: "Analyst",
-    last_login: "20 mins ago",
-    status: "Enabled",
-    joined_date: "21 Feb 2023, 11:05",
+    status: "inactive",
   },
   {
     user: {
@@ -351,10 +346,9 @@ export const UsersListInfos = [
       email: "melody@altbox.com",
       img: "/images/user_image.jpg",
     },
+    username: "Max Smith",
     role: "Developer",
-    last_login: "20 mins ago",
-    status: "",
-    joined_date: "21 Feb 2023, 11:05",
+    status: "inactive",
   },
   {
     user: {
@@ -362,10 +356,9 @@ export const UsersListInfos = [
       email: "smith@kpmg.com",
       img: "/images/user_image.jpg",
     },
+    username: "Emma Smith",
     role: "Administrator",
-    last_login: "yesterday",
-    status: "",
-    joined_date: "10 Nov 2023, 6:43am",
+    status: "active",
   },
   {
     user: {
@@ -373,10 +366,9 @@ export const UsersListInfos = [
       email: "melody@altbox.com",
       img: "",
     },
+    username: "Melody Macy",
     role: "Analyst",
-    last_login: "20 mins ago",
-    status: "Enabled",
-    joined_date: "21 Feb 2023, 11:05",
+    status: "inactive",
   },
   {
     user: {
@@ -384,10 +376,9 @@ export const UsersListInfos = [
       email: "melody@altbox.com",
       img: "/images/user_image.jpg",
     },
+    username: "Max Smith",
     role: "Developer",
-    last_login: "20 mins ago",
-    status: "",
-    joined_date: "21 Feb 2023, 11:05",
+    status: "active",
   },
 ];
 export const RolesListInfos = [

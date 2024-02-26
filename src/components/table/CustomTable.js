@@ -16,7 +16,7 @@ const CustomTable = ({ tableHeader, rowData }) => {
   };
   return (
     <div className="flex flex-col w-11/12 gap-3 px-4 m-auto text-sm bg-white lg:w-full customize__scroll">
-      <table className="table w-full">
+      <table className="table w-full text-xs">
         <thead>
           <tr className="text-left text-gray-400 uppercase border-b border-gray-200 border-dashed">
             <th className="px-3 py-4 min-w-[10px]">
@@ -26,7 +26,8 @@ const CustomTable = ({ tableHeader, rowData }) => {
               <React.Fragment key={index}>
                 <th
                   className="px-3 py-4 text-left min-w-[125px] group cursor-pointer"
-                  onClick={() => sortHandler()}>
+                  onClick={() => sortHandler()}
+                >
                   <div className="flex items-center text-xs font-semibold">
                     {th}
                     <FontAwesomeIcon
@@ -49,7 +50,8 @@ const CustomTable = ({ tableHeader, rowData }) => {
               return (
                 <tr
                   key={idx}
-                  className="capitalize border-b border-gray-200 border-dashed">
+                  className="capitalize border-b border-gray-200 border-dashed"
+                >
                   <td className="px-3 py-3 min-w-[10px]">
                     <Checkbox
                       onChange={handleCheck}
@@ -61,16 +63,15 @@ const CustomTable = ({ tableHeader, rowData }) => {
                   </td>
                   {rowKey.map((key, idx) =>
                     key === "user" ? (
-                      <td
-                        className="text-left p-3 min-w-[200px]"
-                        key={key + idx}>
+                      <td className="w-1/2 p-3 text-left" key={key + idx}>
                         <div className="flex items-center">
                           <div
                             className={`w-[50px] h-[50px] cursor-pointer ${
                               row[key].img
                                 ? "object-center"
                                 : `text-center flex items-center justify-center`
-                            }  rounded-full overflow-hidden mr-4`}>
+                            }  rounded-full overflow-hidden mr-4`}
+                          >
                             {row[key].img ? (
                               <Image
                                 src={row[key].img}
@@ -96,21 +97,28 @@ const CustomTable = ({ tableHeader, rowData }) => {
                     ) : key === "status" ? (
                       <td
                         key={key + idx}
-                        className="p-3 text-xs font-medium text-left">
+                        className="p-3 text-xs font-medium text-left"
+                      >
                         <div
-                          className={`w-[76px] text-center text-xs font-medium px-2 py-1 capitalize rounded`}>
+                          className={`w-fit text-center text-xs font-medium px-1 py-0.5 capitalize rounded ${
+                            row[key] === "active"
+                              ? "bg-green-50 text-green-400"
+                              : "bg-red-50 text-red-500"
+                          }`}
+                        >
                           {row[key]}
                         </div>
                       </td>
                     ) : (
                       <td
                         key={key + idx}
-                        className="p-3 text-left text-gray-600">
+                        className="p-3 font-medium text-left text-gray-500"
+                      >
                         {row[key]}
                       </td>
                     )
                   )}
-                  <td className="p-3">
+                  <td className="py-3">
                     <MenuDropdown />
                   </td>
                 </tr>
