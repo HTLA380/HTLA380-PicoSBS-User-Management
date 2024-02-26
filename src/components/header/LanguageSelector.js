@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HoverPopoverButton from "../button/HoverPopoverButton";
+import HoverDropDownMenu from "../drawer/HoverDropDownMenu";
 
 const languageData = [
   {
@@ -45,12 +45,12 @@ const LanguageSelector = () => {
   );
 
   return (
-    <HoverPopoverButton popOverContent={languagePopoverContent}>
+    <HoverDropDownMenu popOverContent={languagePopoverContent}>
       <button className="flex items-center h-full gap-2 px-4 text-xs font-medium text-gray-500 bg-white rounded-sm shadow-sm">
         {name}
         <img src={imgSrc} className="w-4 h-4 rounded-md" />
       </button>
-    </HoverPopoverButton>
+    </HoverDropDownMenu>
   );
 };
 

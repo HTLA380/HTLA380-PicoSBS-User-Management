@@ -1,5 +1,4 @@
 import React from "react";
-import Breadcrumbs from "../Breadcrumbs";
 import LanguageSelector from "./LanguageSelector";
 import PosScreen from "./PosScreen";
 import SoundToggle from "./SoundToggle";

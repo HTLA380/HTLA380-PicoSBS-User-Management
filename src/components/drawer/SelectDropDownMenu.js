@@ -4,7 +4,7 @@ import { FaChevronDown } from "react-icons/fa";
 
 // ====================================================
 
-const SelectDropDown = ({ state, setState, placeholder, options }) => {
+const SelectDropDownMenu = ({ state, setState, placeholder, options }) => {
   return (
     <div className="relative">
       <Listbox value={state} onChange={setState ? setState : () => null}>
@@ -32,4 +32,4 @@ const SelectDropDown = ({ state, setState, placeholder, options }) => {
   );
 };
 
-export default SelectDropDown;
+export default SelectDropDownMenu;

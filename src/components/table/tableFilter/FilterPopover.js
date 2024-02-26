@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { FaFilter } from "react-icons/fa";
 
 import { Menu, Transition } from "@headlessui/react";
-import SelectDropDown from "@/components/drawer/SelectDropDown";
+import SelectDropDownMenu from "@/components/drawer/SelectDropDownMenu";
 
 // ====================================================
 
@@ -47,7 +47,7 @@ const FilterPopover = ({ role, setRole, status, setStatus }) => {
             <div className="p-5">
               <div>
                 <p className="text-xs">Role:</p>
-                <SelectDropDown
+                <SelectDropDownMenu
                   state={role}
                   setState={setRole}
                   placeholder={"Select option"}
@@ -57,7 +57,7 @@ const FilterPopover = ({ role, setRole, status, setStatus }) => {
 
               <div className="mt-8">
                 <p className="text-xs">Account Status</p>
-                <SelectDropDown
+                <SelectDropDownMenu
                   state={status}
                   setState={setStatus}
                   placeholder={"Select option"}

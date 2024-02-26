@@ -5,7 +5,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
 import Checkbox from "../form/input/Checkbox";
-import MenuDropdown from "../drawer/MenuDropdown";
+import DropdownMenu from "../drawer/DropdownMenu";
 
 // ===================================================
 
@@ -65,7 +65,7 @@ const CustomTable = ({ tableHeader, rowData }) => {
                   </td>
                 ))}
                 <td className="py-3">
-                  <MenuDropdown />
+                  <DropdownMenu />
                 </td>
               </tr>
             ))

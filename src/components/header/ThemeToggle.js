@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoMdSunny } from "react-icons/io";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FaDesktop } from "react-icons/fa";
-import HoverPopoverButton from "../button/HoverPopoverButton";
+import HoverDropDownMenu from "../drawer/HoverDropDownMenu";
 
 const themeData = [
   {
@@ -45,11 +45,11 @@ const ThemeToggle = () => {
   const { icon } = themeData.find(({ name }) => name === theme);
 
   return (
-    <HoverPopoverButton popOverContent={themePopoverContent}>
+    <HoverDropDownMenu popOverContent={themePopoverContent}>
       <button className="flex items-center justify-center w-8 h-full text-sm text-gray-500 bg-white rounded-md hover:text-blue-500">
         {icon}
       </button>
-    </HoverPopoverButton>
+    </HoverDropDownMenu>
   );
 };
 

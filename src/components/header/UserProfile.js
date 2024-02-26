@@ -1,5 +1,5 @@
 import React from "react";
-import HoverPopoverButton from "../button/HoverPopoverButton";
+import HoverDropDownMenu from "../drawer/HoverDropDownMenu";
 import Link from "next/link";
 
 const UserProfile = () => {
@@ -39,11 +39,11 @@ const UserProfile = () => {
   );
 
   return (
-    <HoverPopoverButton popOverContent={themePopoverContent}>
+    <HoverDropDownMenu popOverContent={themePopoverContent}>
       <button className="flex items-center justify-center h-full font-semibold text-blue-400 rounded-md bg-blue-50 w-9">
         P
       </button>
-    </HoverPopoverButton>
+    </HoverDropDownMenu>
   );
 };
 

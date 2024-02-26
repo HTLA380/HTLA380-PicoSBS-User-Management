@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const HoverPopoverButton = ({ children, popOverContent, className }) => {
-  const [isHovering, setIsHovering] = useState(false);
+const HoverDropDownMenu = ({ children, popOverContent, className }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   let hoverTimeout;
 
@@ -13,12 +13,12 @@ const HoverPopoverButton = ({ children, popOverContent, className }) => {
 
   const handleMouseEnter = () => {
     clearTimeout(hoverTimeout); // Clear any existing timeout
-    setIsHovering(true);
+    setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
     hoverTimeout = setTimeout(() => {
-      setIsHovering(false);
+      setIsOpen(false);
     }, 200);
   };
 
@@ -31,12 +31,13 @@ const HoverPopoverButton = ({ children, popOverContent, className }) => {
 
       <div
         className={`absolute bottom-0 min-w-full translate-y-full right-0 ${className} ${
-          isHovering ? "slideInUp_Animation" : "invisible"
+          isOpen ? "slideInUp_Animation" : "invisible"
         }`}>
+        <div className="px-2 py-3 bg-white rounded-md shadow-md w-36"></div>
         {popOverContent}
       </div>
     </div>
   );
 };
 
-export default HoverPopoverButton;
+export default HoverDropDownMenu;

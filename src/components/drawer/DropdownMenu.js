@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Menu, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
 
-const MenuDropdown = ({ className }) => {
+const DropdownMenu = ({ className }) => {
   return (
     <div className={`${className ? className : null}`}>
       <Menu as="div" className="relative inline-block text-left">
@@ -23,8 +23,7 @@ const MenuDropdown = ({ className }) => {
           enterTo="transform opacity-100 scale-100"
           leave="transition ease-in duration-200"
           leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-75"
-        >
+          leaveTo="transform opacity-0 scale-75">
           <Menu.Items className="absolute right-0 z-50 w-32 mt-1 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 ">
               <Menu.Item>
@@ -32,8 +31,7 @@ const MenuDropdown = ({ className }) => {
                   <button
                     className={`${
                       active ? "bg-gray-200 text-[#3e97ff]" : "text-gray-500"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}>
                     View
                   </button>
                 )}
@@ -43,8 +41,7 @@ const MenuDropdown = ({ className }) => {
                   <button
                     className={`${
                       active ? "bg-gray-200 text-[#3e97ff]" : "text-gray-500"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}>
                     Edit
                   </button>
                 )}
@@ -54,8 +51,7 @@ const MenuDropdown = ({ className }) => {
                   <button
                     className={`${
                       active ? "bg-gray-200 text-[#3e97ff]" : "text-gray-500"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}>
                     Delete
                   </button>
                 )}
@@ -68,4 +64,4 @@ const MenuDropdown = ({ className }) => {
   );
 };
 
-export default MenuDropdown;
+export default DropdownMenu;
