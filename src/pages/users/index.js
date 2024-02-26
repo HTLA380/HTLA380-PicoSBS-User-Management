@@ -1,11 +1,15 @@
-import CustomTable from "@/components/table/CustomTable";
-import Layout from "@/components/Layout";
-import { UsersListInfos } from "constants/data";
 import React from "react";
+
+import { UsersListInfos } from "constants/data";
+
+import Layout from "@/components/Layout";
 import TableFilter from "@/components/table/tableFilter/TableFilter";
 import TablePagination from "@/components/table/TablePagination";
+import CustomTable from "@/components/table/CustomTable";
 
 const tableHeader = ["User", "Username", "Role", "Status"];
+
+// ====================================================
 
 const UsersList = () => {
   return (

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Listbox } from "@headlessui/react";
 import { FaChevronDown } from "react-icons/fa";
+
+// ====================================================
 
 const SelectDropDown = ({ state, setState, placeholder, options }) => {
   return (
@@ -10,6 +12,7 @@ const SelectDropDown = ({ state, setState, placeholder, options }) => {
           {placeholder}
           <FaChevronDown />
         </Listbox.Button>
+
         <Listbox.Options className="absolute bottom-0 right-0 z-10 w-full py-3 text-xs translate-y-full bg-white rounded-md shadow-card">
           {options.map((option) => (
             <Listbox.Option
@@ -19,8 +22,7 @@ const SelectDropDown = ({ state, setState, placeholder, options }) => {
                   : "text-gray-500"
               }`}
               key={option.id}
-              value={option.value}
-            >
+              value={option.value}>
               {option.name}
             </Listbox.Option>
           ))}

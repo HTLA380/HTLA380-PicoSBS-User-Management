@@ -1,7 +1,11 @@
-import { Menu, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
+
 import { FaFilter } from "react-icons/fa";
+
+import { Menu, Transition } from "@headlessui/react";
 import SelectDropDown from "@/components/drawer/SelectDropDown";
+
+// ====================================================
 
 const roleOptionData = [
   { id: 1, name: "Administrator", value: "administrator" },
@@ -15,6 +19,8 @@ const activeStatusOptionData = [
   { id: 23143214653, name: "Active", value: "active" },
   { id: 28967568767, name: "Inactive", value: "inactive" },
 ];
+
+// ====================================================
 
 const FilterPopover = ({ role, setRole, status, setStatus }) => {
   return (
@@ -32,8 +38,7 @@ const FilterPopover = ({ role, setRole, status, setStatus }) => {
           enterTo="opacity-100 translate-y-0"
           leave="transition ease duration-300 transform"
           leaveFrom="opacity-100 translate-y-0"
-          leaveTo="opacity-0"
-        >
+          leaveTo="opacity-0">
           <Menu.Items className="absolute right-0 z-20 mt-1 origin-top-right bg-white rounded-md shadow-lg w-80">
             <div className="w-full px-4 py-3 text-sm font-semibold border-b border-b-gray-200">
               <p>Filter Options</p>
