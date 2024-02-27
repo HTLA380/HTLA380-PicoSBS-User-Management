@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 import { FaFilter } from "react-icons/fa";
 
@@ -8,21 +8,24 @@ import SelectDropDownMenu from "@/components/drawer/SelectDropDownMenu";
 // ====================================================
 
 const roleOptionData = [
-  { id: 1, name: "Administrator", value: "administrator" },
-  { id: 2, name: "Analyst", value: "analyst" },
-  { id: 3, name: "Developer", value: "developer" },
-  { id: 4, name: "Support", value: "support" },
-  { id: 5, name: "Tiral", value: "tiral" },
+  { id: 1, name: "Administrator" },
+  { id: 2, name: "Analyst" },
+  { id: 3, name: "Developer" },
+  { id: 4, name: "Support" },
+  { id: 5, name: "Tiral" },
 ];
 
 const activeStatusOptionData = [
-  { id: 23143214653, name: "Active", value: "active" },
-  { id: 28967568767, name: "Inactive", value: "inactive" },
+  { id: 23143214653, name: "Active" },
+  { id: 28967568767, name: "Inactive" },
 ];
 
 // ====================================================
 
-const FilterPopover = ({ role, setRole, status, setStatus }) => {
+const Filter = () => {
+  const [role, setRole] = useState(null);
+  const [status, setStatus] = useState(null);
+
   return (
     <div>
       <Menu as="div" className="relative inline-block text-left">
@@ -48,8 +51,8 @@ const FilterPopover = ({ role, setRole, status, setStatus }) => {
               <div>
                 <p className="text-xs">Role:</p>
                 <SelectDropDownMenu
-                  state={role}
-                  setState={setRole}
+                  selected={role}
+                  setSelected={setRole}
                   placeholder={"Select option"}
                   options={roleOptionData}
                 />
@@ -58,8 +61,8 @@ const FilterPopover = ({ role, setRole, status, setStatus }) => {
               <div className="mt-8">
                 <p className="text-xs">Account Status</p>
                 <SelectDropDownMenu
-                  state={status}
-                  setState={setStatus}
+                  selected={status}
+                  setSelected={setStatus}
                   placeholder={"Select option"}
                   options={activeStatusOptionData}
                 />
@@ -81,4 +84,4 @@ const FilterPopover = ({ role, setRole, status, setStatus }) => {
   );
 };
 
-export default FilterPopover;
+export default Filter;
