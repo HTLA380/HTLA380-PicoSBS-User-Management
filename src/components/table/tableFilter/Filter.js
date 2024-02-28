@@ -22,9 +22,29 @@ const activeStatusOptionData = [
 
 // ====================================================
 
-const Filter = () => {
+const Filter = ({ onFilterChange }) => {
   const [role, setRole] = useState(null);
   const [status, setStatus] = useState(null);
+
+  const handleFilter = () => {
+    // Check if both role and status are selected
+    if (role && status) {
+      onFilterChange({
+        role: role.name.toLowerCase(),
+        status: status.name.toLowerCase(),
+      });
+    }
+    // If only role or only status is selected, don't filter
+    // You can optionally handle this case differently if needed
+    // For now, I'm just logging a message
+    else if (!role && status) {
+      console.log("Please select a role.");
+    } else if (role && !status) {
+      console.log("Please select a status.");
+    } else {
+      console.log("Please select both role and status.");
+    }
+  };
 
   return (
     <div>
@@ -72,7 +92,9 @@ const Filter = () => {
                 <button className="px-4 py-3 text-xs text-gray-500 rounded-md hover:bg-blue-50 hover:text-blue-500 bg-gray-50">
                   Reset
                 </button>
-                <button className="px-4 py-3 text-xs text-white bg-blue-500 rounded-md hover:brightness-90">
+                <button
+                  onClick={handleFilter}
+                  className="px-4 py-3 text-xs text-white bg-blue-500 rounded-md hover:brightness-90">
                   Apply
                 </button>
               </div>

@@ -11,13 +11,13 @@ import { useState } from "react";
 
 // ======================================================
 
-const TableFilter = ({ placeholder, onChange }) => {
+const TableFilter = ({ placeholder, onSearchChange, onFilterChange }) => {
   const [searchText, setSearchText] = useState("");
 
   const handleChange = (event) => {
     const value = event.target.value;
     setSearchText(value);
-    onChange(value);
+    onSearchChange(value);
   };
 
   return (
@@ -34,7 +34,7 @@ const TableFilter = ({ placeholder, onChange }) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <Filter />
+          <Filter onFilterChange={onFilterChange} />
           <ExportModal />
           <Link
             href={"/users/create"}

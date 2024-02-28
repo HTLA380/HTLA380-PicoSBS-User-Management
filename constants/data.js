@@ -334,7 +334,7 @@ export const UsersListInfos = [
       name: "Htet Aung Lin",
     },
     username: "htla",
-    role: "Administrator",
+    role: "administrator",
     status: "active",
   },
   {
@@ -343,7 +343,7 @@ export const UsersListInfos = [
       email: "octoberyinnwemoe20@gmail.com",
     },
     username: "yinnwe",
-    role: "test",
+    role: "analyst",
     status: "active",
   },
   {
@@ -352,7 +352,7 @@ export const UsersListInfos = [
       email: "noe735420@gmail.com",
     },
     username: "hnin",
-    role: "test",
+    role: "developer",
     status: "active",
   },
   {
@@ -361,7 +361,7 @@ export const UsersListInfos = [
       email: "htet@gmail.com",
     },
     username: "htetwaiaung",
-    role: "waiter",
+    role: "support",
     status: "active",
   },
   {
@@ -370,7 +370,7 @@ export const UsersListInfos = [
       email: "khaing@gmail.com",
     },
     username: "khaingyinmon",
-    role: "waiter",
+    role: "tiral",
     status: "active",
   },
   {
@@ -379,7 +379,7 @@ export const UsersListInfos = [
       email: "sai@gmail.com",
     },
     username: "saisai",
-    role: "waiter",
+    role: "analyst",
     status: "active",
   },
   {
@@ -388,7 +388,7 @@ export const UsersListInfos = [
       email: "aung@gmail.com",
     },
     username: "aungnyinyihtwe",
-    role: "waiter",
+    role: "developer",
     status: "active",
   },
   {
@@ -397,7 +397,7 @@ export const UsersListInfos = [
       email: "hlaing@gmail.com",
     },
     username: "htethtet",
-    role: "waiter",
+    role: "support",
     status: "active",
   },
   {
@@ -406,7 +406,7 @@ export const UsersListInfos = [
       email: "sweety@gmail.com",
     },
     username: "sweety",
-    role: "waiter",
+    role: "tiral",
     status: "active",
   },
   {
@@ -415,7 +415,7 @@ export const UsersListInfos = [
       email: "soe@gmail.com",
     },
     username: "soewunna",
-    role: "waiter",
+    role: "analyst",
     status: "active",
   },
   {
@@ -424,7 +424,7 @@ export const UsersListInfos = [
       email: "chit@gmail.com",
     },
     username: "chitthaeko",
-    role: "waiter",
+    role: "developer",
     status: "active",
   },
   {
@@ -433,7 +433,7 @@ export const UsersListInfos = [
       email: "kyaw@gmail.com",
     },
     username: "kyawzawwin",
-    role: "waiter",
+    role: "support",
     status: "active",
   },
   {
@@ -442,7 +442,7 @@ export const UsersListInfos = [
       email: "hlaing@gmail.com",
     },
     username: "hlaingkoko",
-    role: "waiter",
+    role: "trial",
     status: "active",
   },
   {
@@ -451,7 +451,7 @@ export const UsersListInfos = [
       email: "phyoepyaemon977@gmail.com",
     },
     username: "mmya",
-    role: "waiter",
+    role: "trial",
     status: "active",
   },
   {
@@ -460,7 +460,7 @@ export const UsersListInfos = [
       email: "waiwai@gmail.com",
     },
     username: "waiwai",
-    role: "waiter",
+    role: "support",
     status: "active",
   },
   {
@@ -469,7 +469,7 @@ export const UsersListInfos = [
       email: "ahthee@gmail.com",
     },
     username: "ahtee",
-    role: "waiter",
+    role: "developer",
     status: "active",
   },
   {
@@ -478,7 +478,7 @@ export const UsersListInfos = [
       email: "bobo@gmail.com",
     },
     username: "bobo",
-    role: "waiter",
+    role: "analyst",
     status: "active",
   },
   {
@@ -486,7 +486,7 @@ export const UsersListInfos = [
       name: "Mr Mdy Representative",
     },
     username: "representative",
-    role: "waiter",
+    role: "developer",
     status: "active",
   },
   {
@@ -495,7 +495,7 @@ export const UsersListInfos = [
       email: "notmyrealemail@unknown.com",
     },
     username: "kyawsaw",
-    role: "DevOps",
+    role: "support",
     status: "active",
   },
   {
@@ -504,7 +504,7 @@ export const UsersListInfos = [
       email: "testmail123@gmail.com",
     },
     username: "soemoe",
-    role: "test",
+    role: "analyst",
     status: "active",
   },
   {
@@ -513,7 +513,7 @@ export const UsersListInfos = [
       email: "aungsi@gmail.com",
     },
     username: "aungsi",
-    role: "DevOps",
+    role: "trial",
     status: "active",
   },
   {
@@ -522,7 +522,7 @@ export const UsersListInfos = [
       email: "hlathan@gmail.com",
     },
     username: "hlathan",
-    role: "guest",
+    role: "developer",
     status: "active",
   },
   {
@@ -530,7 +530,7 @@ export const UsersListInfos = [
       name: "Jone",
     },
     username: "jone",
-    role: "manager",
+    role: "support",
     status: "active",
   },
   {
@@ -539,7 +539,7 @@ export const UsersListInfos = [
       email: "stylebender@gmail.com",
     },
     username: "stylebender",
-    role: "test",
+    role: "developer",
     status: "active",
   },
   {
@@ -548,7 +548,7 @@ export const UsersListInfos = [
       email: "zoe22@gmail.com",
     },
     username: "zoe22",
-    role: "test",
+    role: "analyst",
     status: "active",
   },
 ];
