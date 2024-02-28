@@ -8,16 +8,18 @@ import ExportModal from "./Export";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa6";
 import { useState } from "react";
+import { useUserFilter } from "@/context/UserFilter";
 
 // ======================================================
 
-const TableFilter = ({ placeholder, onSearchChange, onFilterChange }) => {
+const TableFilter = ({ placeholder }) => {
   const [searchText, setSearchText] = useState("");
+  const { filterByName } = useUserFilter();
 
   const handleChange = (event) => {
     const value = event.target.value;
     setSearchText(value);
-    onSearchChange(value);
+    filterByName(value);
   };
 
   return (
@@ -34,7 +36,7 @@ const TableFilter = ({ placeholder, onSearchChange, onFilterChange }) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <Filter onFilterChange={onFilterChange} />
+          <Filter />
           <ExportModal />
           <Link
             href={"/users/create"}

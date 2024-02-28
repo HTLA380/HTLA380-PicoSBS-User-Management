@@ -1,9 +1,11 @@
 import { Combobox } from "@headlessui/react";
 import { FaChevronDown } from "react-icons/fa";
+import { FaXmark } from "react-icons/fa6";
 
 export default function SelectDropDownMenu({
   selected,
   setSelected,
+  removeAble = false,
   placeholder = "Select an option",
   options = [],
 }) {
@@ -22,7 +24,16 @@ export default function SelectDropDownMenu({
               }`}>
               {selected ? selected.name : placeholder}
             </div>
-            <FaChevronDown aria-hidden="true" />
+            <div className="flex items-center">
+              {removeAble && selected && (
+                <span
+                  className="px-1 hover:text-blue-500"
+                  onClick={() => setSelected(null)}>
+                  <FaXmark />
+                </span>
+              )}
+              <FaChevronDown aria-hidden="true" />
+            </div>
           </Combobox.Button>
 
           <Combobox.Options className="absolute z-20 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black/5 focus:outline-none sm:text-sm">

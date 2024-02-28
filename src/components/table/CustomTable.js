@@ -6,10 +6,14 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Checkbox from "../form/input/Checkbox";
 import DropdownMenu from "../drawer/DropdownMenu";
+import { useUserFilter } from "@/context/UserFilter";
+
+const tableHeader = ["User", "Username", "Role", "Status"];
 
 // ===================================================
 
-const CustomTable = ({ tableHeader, rowData }) => {
+const CustomTable = () => {
+  const { filteredUsers: rowData } = useUserFilter();
   const [checked, setChecked] = useState(false);
 
   const handleCheck = (e) => {
@@ -113,7 +117,7 @@ const getCellContent = (key, value) => {
                 height={100}
               />
             ) : (
-              <div className="flex items-center justify-center w-full h-full text-base text-red-500 bg-red-100">
+              <div className="flex items-center justify-center w-full h-full text-base font-medium text-red-500 bg-red-100">
                 {value.name.charAt(0)}
               </div>
             )}

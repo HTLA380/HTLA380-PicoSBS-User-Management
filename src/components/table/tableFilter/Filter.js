@@ -4,6 +4,8 @@ import { FaFilter } from "react-icons/fa";
 
 import { Menu, Transition } from "@headlessui/react";
 import SelectDropDownMenu from "@/components/drawer/SelectDropDownMenu";
+import { UsersListInfos } from "constants/data";
+import { useUserFilter } from "@/context/UserFilter";
 
 // ====================================================
 
@@ -22,28 +24,25 @@ const activeStatusOptionData = [
 
 // ====================================================
 
-const Filter = ({ onFilterChange }) => {
+const Filter = () => {
   const [role, setRole] = useState(null);
   const [status, setStatus] = useState(null);
+  const { filterByRole, resetFilter } = useUserFilter();
 
   const handleFilter = () => {
-    // Check if both role and status are selected
-    if (role && status) {
-      onFilterChange({
+    if (role || status) {
+      filterByRole({
         role: role.name.toLowerCase(),
-        status: status.name.toLowerCase(),
+        status: status?.name?.toLowerCase(),
       });
     }
-    // If only role or only status is selected, don't filter
-    // You can optionally handle this case differently if needed
-    // For now, I'm just logging a message
-    else if (!role && status) {
-      console.log("Please select a role.");
-    } else if (role && !status) {
-      console.log("Please select a status.");
-    } else {
-      console.log("Please select both role and status.");
-    }
+    return;
+  };
+
+  const handleReset = () => {
+    setRole(null);
+    setStatus(null);
+    resetFilter(UsersListInfos);
   };
 
   return (
@@ -71,6 +70,7 @@ const Filter = ({ onFilterChange }) => {
               <div>
                 <p className="text-xs">Role:</p>
                 <SelectDropDownMenu
+                  removeAble
                   selected={role}
                   setSelected={setRole}
                   placeholder={"Select option"}
@@ -81,6 +81,7 @@ const Filter = ({ onFilterChange }) => {
               <div className="mt-8">
                 <p className="text-xs">Account Status</p>
                 <SelectDropDownMenu
+                  removeAble
                   selected={status}
                   setSelected={setStatus}
                   placeholder={"Select option"}
@@ -89,14 +90,18 @@ const Filter = ({ onFilterChange }) => {
               </div>
 
               <div className="flex items-center justify-end w-full gap-3 mt-6">
-                <button className="px-4 py-3 text-xs text-gray-500 rounded-md hover:bg-blue-50 hover:text-blue-500 bg-gray-50">
+                <Menu.Item
+                  as={"button"}
+                  onClick={handleReset}
+                  className="px-4 py-3 text-xs text-gray-500 rounded-md hover:bg-blue-50 hover:text-blue-500 bg-gray-50">
                   Reset
-                </button>
-                <button
+                </Menu.Item>
+                <Menu.Item
+                  as={"button"}
                   onClick={handleFilter}
                   className="px-4 py-3 text-xs text-white bg-blue-500 rounded-md hover:brightness-90">
                   Apply
-                </button>
+                </Menu.Item>
               </div>
             </div>
           </Menu.Items>
