@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { UsersListInfos } from "constants/data";
 
@@ -12,14 +12,26 @@ const tableHeader = ["User", "Username", "Role", "Status"];
 // ====================================================
 
 const UsersList = () => {
+  const [filteredUsers, setFilteredUsers] = useState(UsersListInfos);
+
+  const handleFilterChange = (searchText) => {
+    const filteredData = UsersListInfos.filter((data) =>
+      data.user.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredUsers(filteredData);
+  };
+
   return (
     <Layout>
       <div className="pb-5 ml-4 bg-white rounded-lg">
         <div className="rounded-xl">
           <div className="mb-4">
-            <TableFilter placeholder="Search user" />
+            <TableFilter
+              placeholder="Search user"
+              onChange={handleFilterChange}
+            />
           </div>
-          <CustomTable tableHeader={tableHeader} rowData={UsersListInfos} />
+          <CustomTable tableHeader={tableHeader} rowData={filteredUsers} />
           <div className="my-6">
             <TablePagination />
           </div>
