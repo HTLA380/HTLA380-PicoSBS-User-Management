@@ -4,7 +4,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import Input from "../../form/input/Input";
 import Filter from "./Filter";
-import Export from "./Export";
+import ExportModal from "./Export";
 
 // ======================================================
 
@@ -23,7 +23,7 @@ const TableFilter = ({ placeholder }) => {
         <div className="flex items-center gap-4">
           <Filter />
 
-          <Export />
+          <ExportModal />
         </div>
       </div>
     </>
