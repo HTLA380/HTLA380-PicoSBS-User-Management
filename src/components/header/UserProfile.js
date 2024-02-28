@@ -9,10 +9,10 @@ const UserProfile = () => {
         {/* ===== user information ===== */}
         <div className="flex items-center gap-4">
           <button className="flex items-center justify-center w-12 h-12 text-lg text-blue-400 rounded-md bg-blue-50">
-            P
+            H
           </button>
           <div>
-            <p>PICO</p>
+            <p>Htet Aung Lin</p>
             <Link
               href={"/#"}
               className="block text-xs text-gray-500 hover:text-blue-400">
@@ -41,7 +41,7 @@ const UserProfile = () => {
   return (
     <HoverDropDownMenu popOverContent={themePopoverContent}>
       <button className="flex items-center justify-center h-full font-semibold text-blue-400 rounded-md bg-blue-50 w-9">
-        P
+        H
       </button>
     </HoverDropDownMenu>
   );
