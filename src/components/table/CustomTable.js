@@ -113,7 +113,9 @@ const getCellContent = (key, value) => {
                 height={100}
               />
             ) : (
-              <div className="text-base">{value.name.charAt(0)}</div>
+              <div className="flex items-center justify-center w-full h-full text-base text-red-500 bg-red-100">
+                {value.name.charAt(0)}
+              </div>
             )}
           </div>
           <div className="flex flex-col gap-1">
