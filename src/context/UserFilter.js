@@ -7,6 +7,8 @@ export const UserFilterProvider = ({ children, initialData }) => {
   const [filteredUsers, setFilteredUsers] = useState(initialData);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedUsersId, setSelectedUsersId] = useState([]);
+  const [selectAllChecked, setSelectAllChecked] = useState(false);
 
   const filterByName = (searchText) => {
     const filteredData = users.filter((data) =>
@@ -35,6 +37,17 @@ export const UserFilterProvider = ({ children, initialData }) => {
     setFilteredUsers(users);
   };
 
+  const deleteUser = () => {
+    // Filter out selected users from the users array
+    const updatedUsers = users.filter(
+      (user) => !selectedUsersId.includes(user.id)
+    );
+
+    setUsers(updatedUsers);
+    setFilteredUsers(updatedUsers);
+    setSelectedUsersId([]); // Clear selected users
+  };
+
   const handleItemsPerPageChange = (newItemsPerPage) => {
     setItemsPerPage(newItemsPerPage);
     setCurrentPage(1); // Reset to the first page when changing items per page
@@ -48,16 +61,25 @@ export const UserFilterProvider = ({ children, initialData }) => {
   return (
     <UserFilterContext.Provider
       value={{
+        users,
+        setUsers,
         filteredUsers,
-        paginatedUsers,
-        filterByName,
-        filterByRole,
-        resetFilter,
+        setFilteredUsers,
         itemsPerPage,
         setItemsPerPage,
         currentPage,
-        handleItemsPerPageChange,
         setCurrentPage,
+        selectedUsersId,
+        setSelectedUsersId,
+        selectAllChecked,
+        setSelectAllChecked,
+
+        filterByName,
+        filterByRole,
+        resetFilter,
+        deleteUser,
+        paginatedUsers,
+        handleItemsPerPageChange,
       }}>
       {children}
     </UserFilterContext.Provider>

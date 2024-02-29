@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
-import Checkbox from "../form/input/Checkbox";
 import DropdownMenu from "../drawer/DropdownMenu";
 import { useUserFilter } from "@/context/UserFilter";
 
@@ -13,11 +12,40 @@ const tableHeader = ["User", "Username", "Role", "Status"];
 // ===================================================
 
 const CustomTable = () => {
-  const { paginatedUsers: rowData } = useUserFilter();
-  const [checked, setChecked] = useState(false);
+  const {
+    paginatedUsers: rowData,
+    selectedUsersId,
+    setSelectedUsersId,
+    selectAllChecked,
+    setSelectAllChecked,
+  } = useUserFilter();
 
-  const handleCheck = (e) => {
-    setChecked(e.target.checked);
+  const handleCheck = (id) => {
+    if (selectAllChecked) {
+      // If "Select All" is checked, deselect all users if any checkbox is unchecked
+      if (selectedUsersId.includes(id)) {
+        setSelectedUsersId(selectedUsersId.filter((userId) => userId !== id));
+      } else {
+        setSelectedUsersId([...selectedUsersId, id]);
+      }
+    } else {
+      // Otherwise, handle individual checkbox changes
+      if (selectedUsersId.includes(id)) {
+        setSelectedUsersId(selectedUsersId.filter((userId) => userId !== id));
+      } else {
+        setSelectedUsersId([...selectedUsersId, id]);
+      }
+    }
+  };
+
+  const handleSelectAll = () => {
+    setSelectAllChecked(!selectAllChecked);
+    if (!selectAllChecked) {
+      const allUsersIds = rowData.map((row) => row.id);
+      setSelectedUsersId(allUsersIds);
+    } else {
+      setSelectedUsersId([]);
+    }
   };
 
   const sortHandler = () => {
@@ -31,7 +59,7 @@ const CustomTable = () => {
         <thead>
           <tr className="text-left text-gray-400 uppercase border-b border-gray-200 border-dashed">
             <th className="px-3 py-4 min-w-[10px]">
-              <Checkbox checked={checked} onChange={handleCheck} />
+              <CheckBox checked={selectAllChecked} onChange={handleSelectAll} />
             </th>
             {tableHeader.map((th, index) => (
               <th
@@ -57,17 +85,21 @@ const CustomTable = () => {
         <tbody>
           {rowData.length > 0 ? (
             rowData.map((row, idx) => (
-              <tr
-                key={idx}
-                className="capitalize border-b border-gray-200 border-dashed">
+              <tr key={idx} className="border-b border-gray-200 border-dashed">
                 <td className="px-3 py-3 min-w-[10px]">
-                  <Checkbox onChange={handleCheck} value={idx + 1} />
+                  <CheckBox
+                    checked={selectedUsersId.includes(row.id)}
+                    onChange={() => handleCheck(row.id)}
+                  />
                 </td>
-                {Object.keys(row).map((key, idx) => (
-                  <td key={key + idx} className={getTableCellClass(key)}>
-                    {getCellContent(key, row[key])}
-                  </td>
-                ))}
+                {Object.keys(row).map(
+                  (key, idx) =>
+                    key !== "id" && (
+                      <td key={key + idx} className={getTableCellClass(key)}>
+                        {getCellContent(key, row[key])}
+                      </td>
+                    )
+                )}
                 <td className="py-3">
                   <DropdownMenu />
                 </td>
@@ -75,7 +107,9 @@ const CustomTable = () => {
             ))
           ) : (
             <tr>
-              <td colSpan={tableHeader.length + 1}>
+              <td
+                colSpan={tableHeader.length + 1}
+                className="py-8 text-sm text-center text-gray-500">
                 No data available in table
               </td>
             </tr>
@@ -142,6 +176,19 @@ const getCellContent = (key, value) => {
     default:
       return value;
   }
+};
+
+const CheckBox = ({ checked, onChange }) => {
+  return (
+    <div class="flex items-center">
+      <input
+        checked={checked}
+        onChange={onChange}
+        type="checkbox"
+        className="w-5 h-5 text-blue-500 bg-gray-100 border-none rounded outline-none cursor-pointer ring-0 focus:ring-0"
+      />
+    </div>
+  );
 };
 
 export default CustomTable;
