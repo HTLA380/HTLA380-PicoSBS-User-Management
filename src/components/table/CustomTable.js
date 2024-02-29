@@ -13,7 +13,7 @@ const tableHeader = ["User", "Username", "Role", "Status"];
 // ===================================================
 
 const CustomTable = () => {
-  const { filteredUsers: rowData } = useUserFilter();
+  const { paginatedUsers: rowData } = useUserFilter();
   const [checked, setChecked] = useState(false);
 
   const handleCheck = (e) => {
@@ -123,7 +123,7 @@ const getCellContent = (key, value) => {
             )}
           </div>
           <div className="flex flex-col gap-1">
-            <div>{value.name}</div>
+            <div className="text-[0.8125rem]">{value.name}</div>
             <div className="text-xs text-gray-500">{value.email}</div>
           </div>
         </div>

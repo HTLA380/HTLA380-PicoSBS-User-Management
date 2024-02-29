@@ -1,75 +1,92 @@
-import React, { useState } from "react";
-import Button from "../form/button/Button";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import Select from "../form/input/Select";
+import React, { useState, useEffect } from "react";
+import { useUserFilter } from "@/context/UserFilter";
+import SelectDropDownMenu from "../drawer/SelectDropDownMenu";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const data = [{ name: 10 }, { name: 20 }, { name: 30 }, { name: 40 }];
+const data = [{ name: 10 }, { name: 25 }, { name: 50 }, { name: 100 }];
 
 const TablePagination = () => {
+  const {
+    itemsPerPage,
+    setItemsPerPage,
+    filteredUsers,
+    currentPage,
+    setCurrentPage,
+  } = useUserFilter();
   const [active, setActive] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const getItemProps = (index) => {
-    setActive(index);
-    console.log("active ", active);
-  };
+  useEffect(() => {
+    // Calculate total pages based on filteredUsers and itemsPerPage
+    setTotalPages(Math.ceil(filteredUsers.length / itemsPerPage));
+  }, [filteredUsers, itemsPerPage]); // Add itemsPerPage as a dependency
+
+  useEffect(() => {
+    setActive(currentPage);
+  }, [currentPage]);
 
   const handlePagination = (pageNumber) => {
     setActive(pageNumber);
+    setCurrentPage(pageNumber);
   };
 
-  const renderPageNumbers = Array.from({ length: 5 }, (_, i) => i + 1).map(
-    (pageNumber) => (
-      <span
-        key={pageNumber}
-        onClick={() => handlePagination(pageNumber)}
-        className={`h-8 w-8 text-sm flex justify-center items-center rounded-md cursor-pointer ${
-          active === pageNumber
-            ? "bg-gray-400 text-gray-100"
-            : "hover:bg-gray-300"
-        }`}>
-        {pageNumber}
-      </span>
-    )
-  );
+  const handleItemsPerPageChange = (newItemsPerPage) => {
+    setItemsPerPage(newItemsPerPage);
+    // Reset current page to 1 when items per page changes
+    setCurrentPage(1);
+  };
+
+  const renderPageNumbers = Array.from(
+    { length: totalPages },
+    (_, i) => i + 1
+  ).map((pageNumber) => (
+    <span
+      key={pageNumber}
+      onClick={() => handlePagination(pageNumber)}
+      className={`h-8 w-8 text-sm flex justify-center items-center rounded-md cursor-pointer ${
+        active === pageNumber ? "bg-blue-500 text-white" : "hover:bg-gray-300"
+      }`}>
+      {pageNumber}
+    </span>
+  ));
 
   const next = () => {
-    if (active === 5) return;
+    if (active === totalPages) return;
     setActive(active + 1);
+    setCurrentPage(active + 1);
   };
 
   const prev = () => {
     if (active === 1) return;
     setActive(active - 1);
+    setCurrentPage(active - 1);
   };
 
   return (
     <div className="flex items-center justify-between px-8">
       <div className="w-24 rounded-md shadow-sm cursor-pointer">
-        <Select data={data} className="w-full text-center" />
+        <SelectDropDownMenu
+          selected={itemsPerPage}
+          setSelected={handleItemsPerPageChange}
+          placeholder={"10"}
+          options={data}
+        />
       </div>
 
       <div className="flex items-center gap-1">
-        <Button
-          variant="text"
-          className="bg-transparent text-[#95989a]"
+        <button
           onClick={prev}
-          disabled={active === 1}
-          leftIcon={faArrowLeft}
-          iconColor="text-[#95989a] h-[1rem] w-[1rem]">
-          Previous
-        </Button>
+          className="p-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-blue-500">
+          <FaChevronLeft />
+        </button>
 
         <div className="flex items-center gap-1">{renderPageNumbers}</div>
 
-        <Button
-          variant="text"
-          className="bg-transparent text-[#95989a]"
+        <button
           onClick={next}
-          disabled={active === 5}
-          rightIcon={faArrowRight}
-          iconColor="text-[#95989a] h-[1rem] w-[1rem]">
-          Next
-        </Button>
+          className="p-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-blue-500">
+          <FaChevronRight />
+        </button>
       </div>
     </div>
   );

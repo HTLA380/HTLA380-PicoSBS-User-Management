@@ -22,7 +22,7 @@ export default function SelectDropDownMenu({
               className={`text-sm font-medium ${
                 selected ? "text-gray-600" : "text-gray-400"
               }`}>
-              {selected ? selected.name : placeholder}
+              {selected ? selected : placeholder}
             </div>
             <div className="flex items-center">
               {removeAble && selected && (
@@ -38,15 +38,15 @@ export default function SelectDropDownMenu({
 
           <Combobox.Options className="absolute z-20 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black/5 focus:outline-none sm:text-sm">
             {options &&
-              options.map((option) => (
+              options.map((option, idx) => (
                 <Combobox.Option
-                  key={option.id}
+                  key={option.id || idx}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
                       active ? "bg-blue-50 text-blue-500" : "text-gray-500"
                     }`
                   }
-                  value={option}>
+                  value={option.name}>
                   <span className="text-xs font-medium">{option.name}</span>
                 </Combobox.Option>
               ))}

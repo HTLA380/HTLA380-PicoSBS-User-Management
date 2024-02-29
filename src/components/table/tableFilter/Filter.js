@@ -32,8 +32,8 @@ const Filter = () => {
   const handleFilter = () => {
     if (role || status) {
       filterByRole({
-        role: role.name.toLowerCase(),
-        status: status?.name?.toLowerCase(),
+        role: role?.toLowerCase(),
+        status: status?.toLowerCase(),
       });
     }
     return;

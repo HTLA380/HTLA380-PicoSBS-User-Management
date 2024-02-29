@@ -1,10 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 const UserFilterContext = createContext();
 
 export const UserFilterProvider = ({ children, initialData }) => {
   const [users, setUsers] = useState(initialData);
   const [filteredUsers, setFilteredUsers] = useState(initialData);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filterByName = (searchText) => {
     const filteredData = users.filter((data) =>
@@ -33,9 +35,30 @@ export const UserFilterProvider = ({ children, initialData }) => {
     setFilteredUsers(users);
   };
 
+  const handleItemsPerPageChange = (newItemsPerPage) => {
+    setItemsPerPage(newItemsPerPage);
+    setCurrentPage(1); // Reset to the first page when changing items per page
+  };
+
+  // Calculate the range of items to display based on pagination
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedUsers = filteredUsers.slice(startIndex, endIndex);
+
   return (
     <UserFilterContext.Provider
-      value={{ filteredUsers, filterByName, filterByRole, resetFilter }}>
+      value={{
+        filteredUsers,
+        paginatedUsers,
+        filterByName,
+        filterByRole,
+        resetFilter,
+        itemsPerPage,
+        setItemsPerPage,
+        currentPage,
+        handleItemsPerPageChange,
+        setCurrentPage,
+      }}>
       {children}
     </UserFilterContext.Provider>
   );
