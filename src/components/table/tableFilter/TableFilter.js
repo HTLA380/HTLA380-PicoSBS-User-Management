@@ -7,8 +7,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import Input from "../../form/input/Input";
 import Filter from "./Filter";
-import ExportModal from "./Export";
-import Delete from "./Delete";
+import ExportModal from "./ExportModal";
+import Delete from "./DeleteModal";
 
 // ============================================================
 
