@@ -50,11 +50,11 @@ export default function AlertModal({
           />
           <div className="fixed inset-0 flex items-center justify-center w-screen p-4">
             <Transition.Child as={Fragment} {...transition}>
-              <div className="flex flex-col items-center justify-center w-[26.25rem] gap-6 mx-auto bg-white rounded-md p-4 h-72">
+              <div className="flex flex-col items-center justify-center w-[26.25rem] gap-6 mx-auto bg-popover rounded-lg p-4 h-72">
                 <span className="block">
                   <RenderAlertIcon alertType={alertType} />
                 </span>
-                <p className="w-3/4 text-sm text-center text-gray-800">
+                <p className="w-3/4 text-sm text-center text-foreground">
                   {alertText}
                 </p>
                 <div className="flex items-center gap-2">

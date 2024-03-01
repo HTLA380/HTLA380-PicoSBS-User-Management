@@ -8,7 +8,7 @@ const SoundToggle = () => {
   const renderSoundOnButton = (
     <button
       onClick={() => setIsSoundOn((prev) => !prev)}
-      className="flex items-center justify-center w-8 text-xs text-gray-500 bg-white rounded-md ">
+      className="flex items-center justify-center w-8 text-xs rounded-md text-muted-foreground bg-secondary ">
       <FontAwesomeIcon icon={faVolumeXmark} />
     </button>
   );
@@ -16,7 +16,7 @@ const SoundToggle = () => {
   const renderSoundOffButton = (
     <button
       onClick={() => setIsSoundOn((prev) => !prev)}
-      className="flex items-center justify-center w-8 text-xs text-blue-500 bg-white rounded-md ">
+      className="flex items-center justify-center w-8 text-xs rounded-md text-primary bg-secondary ">
       <FontAwesomeIcon icon={faVolumeLow} />
     </button>
   );

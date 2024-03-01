@@ -7,7 +7,7 @@ const PosScreen = () => {
   return (
     <Link
       href={"/#"}
-      className="flex items-center justify-center w-8 px-3 text-xs text-gray-500 bg-white rounded-md">
+      className="flex items-center justify-center w-8 px-3 text-xs rounded-md text-muted-foreground bg-secondary">
       <FontAwesomeIcon icon={faCashRegister} />
     </Link>
   );

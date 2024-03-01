@@ -44,7 +44,9 @@ const TablePagination = () => {
       key={pageNumber}
       onClick={() => handlePagination(pageNumber)}
       className={`h-8 w-8 text-sm flex justify-center items-center rounded-md cursor-pointer ${
-        active === pageNumber ? "bg-blue-500 text-white" : "hover:bg-gray-300"
+        active === pageNumber
+          ? "bg-primary text-primary-foreground"
+          : "text-accent-foreground hover:bg-accent"
       }`}>
       {pageNumber}
     </span>
@@ -76,7 +78,7 @@ const TablePagination = () => {
       <div className="flex items-center gap-1">
         <button
           onClick={prev}
-          className="p-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-blue-500">
+          className="p-2 text-sm rounded-md text-secondary-foreground hover:bg-accent hover:text-primary">
           <FaChevronLeft />
         </button>
 
@@ -84,7 +86,7 @@ const TablePagination = () => {
 
         <button
           onClick={next}
-          className="p-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-blue-500">
+          className="p-2 text-sm rounded-md text-secondary-foreground hover:bg-accent hover:text-primary">
           <FaChevronRight />
         </button>
       </div>

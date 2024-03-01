@@ -65,12 +65,12 @@ const Delete = () => {
           <>
             <button
               onClick={handleDeleteConfirmation}
-              className="px-6 py-3 mr-4 text-sm font-semibold text-white rounded-md bg-rose-500 hover:brightness-90">
+              className="px-6 py-3 mr-4 text-sm font-semibold rounded-md text-destructive-foreground bg-destructive hover:brightness-90">
               Yes, delete!
             </button>
             <button
               onClick={handleCancelDelete}
-              className="px-6 py-3 text-sm font-semibold rounded-md hover:bg-blue-50 hover:text-blue-500">
+              className="px-6 py-3 text-sm font-semibold rounded-md text-foreground hover:bg-primary-light hover:text-primary">
               No, cancel
             </button>
           </>
@@ -79,7 +79,7 @@ const Delete = () => {
         return (
           <button
             onClick={handleDelete}
-            className="px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-md hover:brightness-90">
+            className="px-6 py-3 text-sm font-semibold rounded-md text-primary-foreground bg-primary hover:brightness-90">
             Ok, got it!
           </button>
         );
@@ -87,7 +87,7 @@ const Delete = () => {
         return (
           <button
             onClick={handleCloseAlert}
-            className="px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-md hover:brightness-90">
+            className="px-6 py-3 text-sm font-semibold rounded-md text-primary-foreground bg-primary hover:brightness-90">
             Ok, got it!
           </button>
         );
@@ -99,7 +99,7 @@ const Delete = () => {
       <p className="text-sm">{selectedUsersId.length} Selected</p>
       <button
         onClick={handleAlert}
-        className="px-6 py-3 text-sm text-white rounded-md bg-rose-500 hover:brightness-90">
+        className="px-6 py-3 text-sm rounded-md bg-destructive text-destructive-foreground hover:brightness-90">
         Delete Selected
       </button>
       {/* these alert will only render when the `alertType` === `type` */}

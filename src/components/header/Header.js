@@ -5,7 +5,7 @@ import SoundToggle from "./SoundToggle";
 import ThemeToggle from "./ThemeToggle";
 import UserProfile from "./UserProfile";
 import { useRouter } from "next/router";
-import { pageTitleData, sidebarData } from "constants/data";
+import { pageTitleData } from "constants/data";
 
 const Header = ({ open, setOpen }) => {
   const router = useRouter();
@@ -17,12 +17,12 @@ const Header = ({ open, setOpen }) => {
   const { title, pathname, subtitle } = getPageTitleData(router.pathname) || {};
 
   return (
-    <header className="sticky top-0 z-10 px-8 py-4 bg-slate-100">
+    <header className="sticky top-0 z-10 px-8 py-4">
       <nav className="flex items-center justify-between">
         <div>
-          <h3>{title || ""}</h3>
+          <h3 className="text-lg font-semibold">{title || ""}</h3>
           <p className="text-[0.8125rem] font-medium capitalize">
-            <span className="text-gray-400">{pathname || ""} / </span>
+            <span className="text-muted-foreground">{pathname || ""} / </span>
             {subtitle || ""}
           </p>
         </div>

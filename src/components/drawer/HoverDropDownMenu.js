@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const HoverDropDownMenu = ({ children, popOverContent, className }) => {
+const HoverDropDownMenu = ({ children, popOverContent, className = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   let hoverTimeout;
@@ -33,7 +33,6 @@ const HoverDropDownMenu = ({ children, popOverContent, className }) => {
         className={`absolute bottom-0 min-w-full translate-y-full right-0 ${className} ${
           isOpen ? "slideInUp_Animation" : "invisible"
         }`}>
-        <div className="px-2 py-3 bg-white rounded-md shadow-md w-36"></div>
         {popOverContent}
       </div>
     </div>

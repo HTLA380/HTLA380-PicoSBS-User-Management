@@ -48,7 +48,7 @@ const Filter = () => {
   return (
     <div>
       <Menu as="div" className="relative inline-block text-left">
-        <Menu.Button className="inline-flex items-center justify-center w-full gap-2 px-5 py-3 text-xs font-medium text-blue-500 rounded-md bg-blue-50 hover:bg-blue-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+        <Menu.Button className="inline-flex items-center justify-center w-full gap-2 px-5 py-3 rounded-md text-primary bg-primary-light hover:bg-primary hover:text-primary-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-opacity-75">
           <FaFilter />
           Filter
         </Menu.Button>
@@ -61,14 +61,14 @@ const Filter = () => {
           leave="transition ease duration-300 transform"
           leaveFrom="opacity-100 translate-y-0"
           leaveTo="opacity-0">
-          <Menu.Items className="absolute right-0 z-20 mt-1 origin-top-right bg-white rounded-md shadow-lg w-80">
-            <div className="w-full px-4 py-3 text-sm font-semibold border-b border-b-gray-200">
+          <Menu.Items className="absolute right-0 z-20 mt-1 origin-top-right rounded-md shadow-xl bg-card w-[340px]">
+            <div className="w-full px-4 py-3 text-sm font-semibold border-b border-b-border">
               <p>Filter Options</p>
             </div>
 
             <div className="p-5">
               <div>
-                <p className="text-xs">Role:</p>
+                <p className="mb-1">Role:</p>
                 <SelectDropDownMenu
                   removeAble
                   selected={role}
@@ -79,7 +79,7 @@ const Filter = () => {
               </div>
 
               <div className="mt-8">
-                <p className="text-xs">Account Status</p>
+                <p className="mb-1">Account Status:</p>
                 <SelectDropDownMenu
                   removeAble
                   selected={status}
@@ -93,13 +93,13 @@ const Filter = () => {
                 <Menu.Item
                   as={"button"}
                   onClick={handleReset}
-                  className="px-4 py-3 text-xs text-gray-500 rounded-md hover:bg-blue-50 hover:text-blue-500 bg-gray-50">
+                  className="px-4 py-3 text-xs rounded-md text-accent-foreground hover:bg-primary-light hover:text-primary bg-accent">
                   Reset
                 </Menu.Item>
                 <Menu.Item
                   as={"button"}
                   onClick={handleFilter}
-                  className="px-4 py-3 text-xs text-white bg-blue-500 rounded-md hover:brightness-90">
+                  className="px-4 py-3 text-xs rounded-md text-primary-foreground bg-primary hover:brightness-90">
                   Apply
                 </Menu.Item>
               </div>

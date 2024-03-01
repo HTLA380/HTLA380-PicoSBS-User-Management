@@ -13,8 +13,8 @@ const UsersList = () => {
   return (
     <UserFilterProvider initialData={UsersListInfos}>
       <Layout>
-        <div className="pb-5 mb-20 ml-4 bg-white rounded-lg">
-          <div className="rounded-xl">
+        <div className="pb-5 mb-20 ml-4 text-sm rounded-lg bg-card">
+          <div className="rounded-lg">
             <div className="mb-4">
               <TableFilter placeholder="Search user" />
             </div>

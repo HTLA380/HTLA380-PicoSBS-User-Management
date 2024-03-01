@@ -24,12 +24,12 @@ const TableFilter = ({ placeholder }) => {
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 px-8 pt-8 font-medium">
+    <div className="flex flex-wrap items-center justify-between gap-4 px-8 pt-8">
       <div className="flex items-center">
         <Input
           leftIcon={faSearch}
           placeholder={placeholder}
-          className="bg-gray-100 border-none"
+          className="border-none bg-accent"
           value={searchText}
           onChange={handleInputChange}
         />
@@ -45,7 +45,7 @@ const TableFilter = ({ placeholder }) => {
             <ExportModal />
             <Link
               href={"/users/create"}
-              className="flex items-center gap-2 px-6 py-3 text-sm text-white bg-blue-500 rounded-md hover:brightness-90">
+              className="flex items-center gap-2 px-6 py-3 text-sm rounded-md text-primary-foreground bg-primary hover:brightness-90">
               <FaPlus />
               Create User
             </Link>

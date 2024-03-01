@@ -53,11 +53,11 @@ const CustomTable = () => {
   };
 
   return (
-    <div className="flex flex-col w-11/12 gap-3 px-4 m-auto text-sm bg-white lg:w-full customize__scroll">
+    <div className="flex flex-col w-11/12 gap-3 px-4 m-auto text-sm bg-card lg:w-full customize__scroll">
       <table className="table w-full text-xs">
         {/*  ====================== */}
         <thead>
-          <tr className="text-left text-gray-400 uppercase border-b border-gray-200 border-dashed">
+          <tr className="text-left uppercase border-b border-dashed border-border text-card-foreground">
             <th className="px-3 py-4 min-w-[10px]">
               <CheckBox checked={selectAllChecked} onChange={handleSelectAll} />
             </th>
@@ -85,7 +85,7 @@ const CustomTable = () => {
         <tbody>
           {rowData.length > 0 ? (
             rowData.map((row, idx) => (
-              <tr key={idx} className="border-b border-gray-200 border-dashed">
+              <tr key={idx} className="border-b border-dashed border-border">
                 <td className="px-3 py-3 min-w-[10px]">
                   <CheckBox
                     checked={selectedUsersId.includes(row.id)}
@@ -109,7 +109,7 @@ const CustomTable = () => {
             <tr>
               <td
                 colSpan={tableHeader.length + 1}
-                className="py-8 text-sm text-center text-gray-500">
+                className="py-8 text-sm text-center text-card-foreground">
                 No data available in table
               </td>
             </tr>
@@ -123,11 +123,11 @@ const CustomTable = () => {
 const getTableCellClass = (key) => {
   switch (key) {
     case "user":
-      return "w-1/2 p-3 text-left";
+      return "min-w-2/5 p-3 text-left";
     case "status":
       return "p-3 text-xs font-medium text-left";
     default:
-      return "p-3 font-medium text-left text-gray-500";
+      return "p-3 font-medium text-left text-card-foreground";
   }
 };
 
@@ -151,24 +151,24 @@ const getCellContent = (key, value) => {
                 height={100}
               />
             ) : (
-              <div className="flex items-center justify-center w-full h-full text-base font-medium text-red-500 bg-red-100">
+              <div className="flex items-center justify-center w-full h-full text-base font-medium text-destructive-light-foreground bg-destructive-light">
                 {value.name.charAt(0)}
               </div>
             )}
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-[0.8125rem]">{value.name}</div>
-            <div className="text-xs text-gray-500">{value.email}</div>
+            <div className="text-xs text-card-foreground">{value.email}</div>
           </div>
         </div>
       );
     case "status":
       return (
         <div
-          className={`w-fit text-center text-xs font-medium px-1 py-0.5 capitalize rounded ${
+          className={`w-fit text-center text-xs font-medium px-1.5 py-0.5 capitalize rounded-md ${
             value === "active"
-              ? "bg-green-50 text-green-400"
-              : "bg-red-50 text-red-500"
+              ? "bg-green-400/10 text-green-400"
+              : "bg-destructive-light text-destructive-light-foreground"
           }`}>
           {value}
         </div>
@@ -185,7 +185,7 @@ const CheckBox = ({ checked, onChange }) => {
         checked={checked}
         onChange={onChange}
         type="checkbox"
-        className="w-5 h-5 text-blue-500 bg-gray-100 border-none rounded outline-none cursor-pointer ring-0 focus:ring-0"
+        className="w-5 h-5 border-none rounded outline-none cursor-pointer text-primary bg-accent ring-0 focus:ring-0"
       />
     </div>
   );

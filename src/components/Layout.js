@@ -7,6 +7,7 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <>
       <Head>
@@ -16,7 +17,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="relative flex min-h-screen bg-slate-100">
+      <main className="relative flex min-h-screen font-medium bg-background text-foreground">
         <Sidebar open={open} />
         <div className="relative flex-1 w-full pb-5 overflow-auto">
           <Header open={open} setOpen={setOpen} />

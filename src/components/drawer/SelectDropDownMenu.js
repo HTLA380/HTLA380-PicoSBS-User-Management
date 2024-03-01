@@ -17,17 +17,20 @@ export default function SelectDropDownMenu({
     <div className="w-full">
       <Combobox value={selected || ""} onChange={handleChange}>
         <div className="relative mt-1">
-          <Combobox.Button className="flex items-center justify-between w-full px-4 py-3 text-xs text-left text-gray-400 bg-gray-100 rounded-md cursor-pointer sm:text-sm">
+          <Combobox.Button
+            className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold text-left rounded-md cursor-pointer text-accent-foreground ${
+              selected ? "bg-accent" : "bg-muted"
+            }`}>
             <div
-              className={`text-sm font-medium ${
-                selected ? "text-gray-600" : "text-gray-400"
+              className={`${
+                selected ? "text-accent-foreground" : "text-muted-foreground"
               }`}>
               {selected ? selected : placeholder}
             </div>
             <div className="flex items-center">
               {removeAble && selected && (
                 <span
-                  className="px-1 hover:text-blue-500"
+                  className="px-1 hover:text-primary"
                   onClick={() => setSelected(null)}>
                   <FaXmark />
                 </span>
@@ -36,14 +39,16 @@ export default function SelectDropDownMenu({
             </div>
           </Combobox.Button>
 
-          <Combobox.Options className="absolute z-20 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black/5 focus:outline-none sm:text-sm">
+          <Combobox.Options className="absolute z-20 w-full py-1 mt-1 overflow-auto text-base rounded-lg shadow-lg bg-card max-h-60 ring-1 ring-black/5 focus:outline-none sm:text-sm">
             {options &&
               options.map((option, idx) => (
                 <Combobox.Option
                   key={option.id || idx}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? "bg-blue-50 text-blue-500" : "text-gray-500"
+                      active
+                        ? "bg-primary-light text-primary"
+                        : "text-accent-foreground"
                     }`
                   }
                   value={option.name}>

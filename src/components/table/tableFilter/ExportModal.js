@@ -44,7 +44,7 @@ const ExportModal = () => {
   const mainModalButton = (
     <button
       onClick={() => setShowMainModal(true)}
-      className="flex items-center gap-2 px-6 py-3 text-sm text-blue-500 rounded-md bg-blue-50 hover:bg-blue-500 hover:text-white">
+      className="flex items-center gap-2 px-6 py-3 text-sm rounded-md text-primary bg-primary-light hover:bg-primary hover:text-primary-foreground">
       <PiExportBold size={15} />
       Export
     </button>
@@ -53,10 +53,10 @@ const ExportModal = () => {
   const closeModal = () => setShowMainModal(false);
 
   const modalHeader = (
-    <div className="flex items-center justify-between p-5 border-b border-b-gray-200">
+    <div className="flex items-center justify-between px-6 pt-6 pb-8 border-b border-b-border">
       <h5 className="text-xl font-semibold">Export Users</h5>
       <button
-        className="text-gray-500 hover:text-blue-500"
+        className="text-accent-foreground hover:text-primary"
         onClick={closeModal}>
         <FaXmark />
       </button>
@@ -83,12 +83,12 @@ const ExportModal = () => {
       open={showMainModal}
       onClose={setShowMainModal}
       transition={slideInUpTransition}>
-      <div className="w-full max-w-[40.625rem] mx-auto bg-white rounded">
+      <div className="w-full max-w-[40.625rem] mx-auto bg-secondary rounded-lg text-foreground">
         {modalHeader}
 
-        <div className="p-5 m-5">
+        <div className="p-5 mx-10 my-5">
           <div>
-            <h5 className="text-sm font-medium">Select Roles:</h5>
+            <h5 className="mb-1.5 text-sm">Select Roles:</h5>
             <SelectDropDownMenu
               placeholder={"Select a role"}
               options={roleOptionData}
@@ -97,8 +97,8 @@ const ExportModal = () => {
             />
           </div>
           <div className="mt-8">
-            <h5 className="text-sm font-medium">
-              Select Export Format: <span className="text-red-500">*</span>
+            <h5 className="mb-1.5 text-sm">
+              Select Export Format: <span className="text-destructive">*</span>
             </h5>
             <SelectDropDownMenu
               placeholder="Select a format"
@@ -107,7 +107,7 @@ const ExportModal = () => {
               setSelected={setSelectedFormat}
             />
             {isEmptyField && (
-              <p className="m-2 text-xs text-red-600">
+              <p className="m-2 text-xs text-destructive">
                 File format is required
               </p>
             )}
@@ -157,19 +157,19 @@ const RenderDiscardButtonWithAlert = ({ setShowMainModal }) => {
           <>
             <button
               onClick={closeAlertAndModal}
-              className="px-6 py-3 mr-4 text-sm font-semibold text-white bg-blue-500 rounded-md hover:brightness-90">
+              className="px-6 py-3 mr-4 text-sm font-semibold rounded-lg text-primary-foreground bg-primary hover:brightness-90">
               Yes, cancel it!
             </button>
             <button
               onClick={showDangerAlert}
-              className="px-6 py-3 text-sm font-medium rounded-md hover:bg-gray-50 hover:text-gray-500">
+              className="px-6 py-3 text-sm font-medium rounded-lg text-foreground hover:bg-accent hover:text-accent-foreground">
               No return
             </button>
           </>
         ) : (
           <button
             onClick={closeAlert}
-            className="px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-md hover:brightness-90">
+            className="px-6 py-3 text-sm font-semibold rounded-md text-primary-foreground bg-primary hover:brightness-90">
             Ok, got it!
           </button>
         )
@@ -181,7 +181,7 @@ const RenderDiscardButtonWithAlert = ({ setShowMainModal }) => {
     <>
       <button
         onClick={showWarningAlert}
-        className="px-5 py-3 text-sm font-medium text-gray-500 rounded-md bg-gray-50 hover:brightness-90">
+        className="px-5 py-3 text-sm font-medium rounded-md text-accent-foreground bg-accent hover:brightness-95">
         Discard
       </button>
       {renderAlert("warning")}
@@ -221,13 +221,13 @@ const RenderSubmitButtonWithAlert = ({
         type === "success" ? (
           <button
             onClick={closeAlertAndModal}
-            className="px-6 py-3 mr-4 text-sm font-semibold text-white bg-blue-500 rounded-md hover:brightness-90">
+            className="px-6 py-3 mr-4 text-sm font-semibold rounded-md text-primary-foreground bg-primary hover:brightness-90">
             Ok, got it!
           </button>
         ) : (
           <button
             onClick={closeAlert}
-            className="px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-md hover:brightness-90">
+            className="px-6 py-3 text-sm font-semibold rounded-md text-primary-foreground bg-primary hover:brightness-90">
             Ok, got it!
           </button>
         )
@@ -239,8 +239,8 @@ const RenderSubmitButtonWithAlert = ({
     <>
       <button
         onClick={submitUser}
-        className={`flex items-center gap-2 px-5 py-3 text-sm font-medium text-white rounded-md hover:bg-blue-500/90 ${
-          loading ? "bg-blue-400 pointer-events-none" : "bg-blue-500"
+        className={`flex items-center gap-2 px-5 py-3 text-sm font-medium rounded-md hover:brightness-90 bg-primary text-primary-foreground ${
+          loading ? "pointer-events-none" : ""
         }`}>
         {loading ? (
           <>

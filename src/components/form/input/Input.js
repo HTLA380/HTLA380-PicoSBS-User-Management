@@ -26,7 +26,7 @@ const Input = ({
     <React.Fragment>
       {labelText ? (
         <div className="p-1">
-          <label className="text-xs text-gray-700">{labelText}</label>
+          <label className="text-xs">{labelText}</label>
           {required === true && (
             <span className="ml-1 text-red-500">*</span>
           )}{" "}
@@ -46,8 +46,8 @@ const Input = ({
         <input
           className={`block w-full text-gray-500 text-sm focus:outline-none overflow-auto h-10 px-4 ${
             leftIcon ? "pl-10" : ""
-          } rounded-lg focus:shadow-inner border focus:border-gray-400 ${
-            error ? "border-red-400 bg-red-100" : "border-gray-300 bg-gray-100"
+          } rounded-lg focus:bg-accent border focus:border-gray-400 ${
+            error ? "border-red-400 bg-red-100" : "border-border bg-muted"
           } ${required ? "required" : ""} ${className ? className : null}`}
           type={type}
           ref={inputRef}
