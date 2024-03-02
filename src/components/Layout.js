@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
       <main className="relative flex min-h-screen font-medium bg-background text-foreground">
         <Sidebar open={open} />
         <div className="relative flex-1 w-full pb-5 overflow-auto">
-          <Header open={open} setOpen={setOpen} />
+          <Header />
           <div className="flex flex-col justify-between h-[90%] px-4">
             <div>{children}</div>
             <Footer />

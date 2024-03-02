@@ -7,7 +7,7 @@ import UserProfile from "./UserProfile";
 import { useRouter } from "next/router";
 import { pageTitleData } from "constants/data";
 
-const Header = ({ open, setOpen }) => {
+const Header = () => {
   const router = useRouter();
 
   const getPageTitleData = (pathname) => {
